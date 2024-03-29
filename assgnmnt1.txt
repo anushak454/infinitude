@@ -1,0 +1,401 @@
+08.03.2024
+
+1))take any one list and perform all list python operations
+
+# Example list
+	my_list = [5, 12, 7, 3, 9, 15, 8, 10]
+
+# 1. Access elements by index
+	print("1. Access elements by index:")
+	print("First element:", my_list[0])
+	print("Last element:", my_list[-1])
+	print("Third to fifth elements:", my_list[2:5])
+	print()
+
+# 2. Update elements by index
+	print("2. Update elements by index:")
+	my_list[1] = 20
+	print("Updated list:", my_list)
+	print()
+
+# 3. Add elements to the end of the list
+	print("3. Add elements to the end of the list:")
+	my_list.append(25)
+	print("List after appending 25:", my_list)
+	print()
+
+# 4. Insert element at a specific position
+	print("4. Insert element at a specific position:")
+	my_list.insert(3, 30)
+	print("List after inserting 30 at index 3:", my_list)
+	print()
+
+# 5. Remove element by value
+	print("5. Remove element by value:")
+	my_list.remove(9)
+	print("List after removing 9:", my_list)
+	print()
+
+# 6. Remove element by index
+	print("6. Remove element by index:")
+	removed_element = my_list.pop(4)
+	print("List after removing element at index 4:", my_list)
+	print("Removed element:", removed_element)
+	print()
+
+# 7. Find index of an element
+	print("7. Find index of an element:")
+	index_of_8 = my_list.index(8)
+	print("Index of element 8:", index_of_8)
+	print()
+
+# 8. Check if an element is in the list
+	print("8. Check if an element is in the list:")
+	is_15_present = 15 in my_list
+	print("Is 15 present in the list?", is_15_present)
+	print()
+
+# 9. Length of the list
+	print("9. Length of the list:")
+	list_length = len(my_list)
+	print("Length of the list:", list_length)
+	print()
+
+# 10. Sorting the list
+	print("10. Sorting the list:")
+	my_list.sort()
+	print("Sorted list:", my_list)
+	print()
+
+# 11. Reversing the list
+	print("11. Reversing the list:")
+	my_list.reverse()
+	print("Reversed list:", my_list)
+	print()
+
+# 12. Clearing the entire list
+	print("12. Clearing the entire list:")
+	my_list.clear()
+	print("List after clearing:", my_list)
+---------------------------------------------
+output::
+	1. Access elements by index:
+	First element: 5
+	Last element: 10
+	Third to fifth elements: [7, 3, 9]
+
+	2. Update elements by index:
+	Updated list: [5, 20, 7, 3, 9, 15, 8, 10]
+
+	3. Add elements to the end of the list:
+	List after appending 25: [5, 20, 7, 3, 9, 15, 8, 10, 25]
+
+	4. Insert element at a specific position:
+	List after inserting 30 at index 3: [5, 20, 7, 30, 3, 9, 15, 8, 10, 25]
+
+	5. Remove element by value:
+	List after removing 9: [5, 20, 7, 30, 3, 15, 8, 10, 25]
+
+	6. Remove element by index:
+	List after removing element at index 4: [5, 20, 7, 30, 15, 8, 10, 25]
+	Removed element: 3
+
+	7. Find index of an element:
+	Index of element 8: 5
+
+	8. Check if an element is in the list:
+	Is 15 present in the list? True
+
+	9. Length of the list:
+	Length of the list: 8
+
+	10. Sorting the list:
+	Sorted list: [5, 7, 8, 10, 15, 20, 25, 30]
+
+	11. Reversing the list:
+	Reversed list: [30, 25, 20, 15, 10, 8, 7, 5]
+
+	12. Clearing the entire list:
+	List after clearing: []
+
+	Process finished with exit code 0
+=====================================================================================================
+
+2)))take any tywo sets and perform all set operations
+
+# Example sets
+	set1 = {2, 4, 6, 8, 10}
+	set2 = {5, 8, 10, 12, 15}
+
+	# 1. Union of sets
+	print("1. Union of sets:")
+	union_set = set1.union(set2)
+	print("Union set:", union_set)
+	print()
+
+# 2. Intersection of sets
+	print("2. Intersection of sets:")
+	intersection_set = set1.intersection(set2)
+	print("Intersection set:", intersection_set)
+	print()
+
+# 3. Difference between sets
+	print("3. Difference between sets:")
+	difference_set1 = set1.difference(set2)
+	difference_set2 = set2.difference(set1)
+	print("Difference set (set1 - set2):", difference_set1)
+	print("Difference set (set2 - set1):", difference_set2)
+	print()
+
+# 4. Symmetric difference between sets
+	print("4. Symmetric difference between sets:")
+	symmetric_difference_set = set1.symmetric_difference(set2)
+	print("Symmetric difference set:", symmetric_difference_set)
+	print()
+
+# 5. Check if one set is subset of another
+	print("5. Check if one set is subset of another:")
+	is_subset = set1.issubset(set2)
+	print("Is set1 a subset of set2?", is_subset)
+	print()
+
+# 6. Check if sets are disjoint
+	print("6. Check if sets are disjoint:")
+	are_disjoint = set1.isdisjoint(set2)
+	print("Are set1 and set2 disjoint?", are_disjoint)
+	print()
+
+# 7. Adding elements to a set
+	print("7. Adding elements to a set:")
+	set1.add(12)
+	set2.update({6, 18, 20})
+	print("Updated set1:", set1)
+	print("Updated set2:", set2)
+	print()
+
+# 8. Removing elements from a set
+	print("8. Removing elements from a set:")
+	set1.remove(8)
+	set2.discard(15)
+	print("Set1 after removing 8:", set1)
+	print("Set2 after discarding 15:", set2)
+	print()
+
+# 9. Clearing the entire set
+	print("9. Clearing the entire set:")
+	set1.clear()
+	set2.clear()
+	print("Set1 after clearing:", set1)
+	print("Set2 after clearing:", set2)
+---------------------------------------------------
+output::::
+	1. Union of sets:
+	Union set: {2, 4, 5, 6, 8, 10, 12, 15}
+
+	2. Intersection of sets:
+	Intersection set: {8, 10}
+
+	3. Difference between sets:
+	Difference set (set1 - set2): {2, 4, 6}
+	Difference set (set2 - set1): {12, 5, 15}
+
+	4. Symmetric difference between sets:
+	Symmetric difference set: {2, 4, 5, 6, 12, 15}
+
+	5. Check if one set is subset of another:
+	Is set1 a subset of set2? False
+
+	6. Check if sets are disjoint:
+	Are set1 and set2 disjoint? False
+
+	7. Adding elements to a set:
+	Updated set1: {2, 4, 6, 8, 10, 12}
+	Updated set2: {18, 20, 5, 6, 8, 10, 12, 15}
+
+	8. Removing elements from a set:
+	Set1 after removing 8: {2, 4, 6, 10, 12}
+	Set2 after discarding 15: {18, 20, 5, 6, 8, 10, 12}
+
+	9. Clearing the entire set:
+	Set1 after clearing: set()
+	Set2 after clearing: set()
+
+Process finished with exit code 0
+============================================================================
+3))perform and explore dictionary operations
+# Example dictionary
+	my_dict = {'name': 'John', 'age': 25, 'city': 'New York', 'gender': 'Male'}
+
+# 1. Accessing values by key
+	print("1. Accessing values by key:")
+	print("Name:", my_dict['name'])
+	print("Age:", my_dict['age'])
+	print()
+
+# 2. Updating values by key
+	print("2. Updating values by key:")
+	my_dict['age'] = 26
+	my_dict['city'] = 'San Francisco'
+	print("Updated dictionary:", my_dict)
+	print()
+
+# 3. Adding a new key-value pair
+	print("3. Adding a new key-value pair:")
+	my_dict['occupation'] = 'Software Engineer'
+	print("Dictionary after adding occupation:", my_dict)
+	print()
+
+# 4. Removing a key-value pair
+	print("4. Removing a key-value pair:")
+	removed_age = my_dict.pop('age')
+	print("Dictionary after removing age:", my_dict)
+	print("Removed age:", removed_age)
+	print()
+
+# 5. Getting keys and values
+	print("5. Getting keys and values:")
+	keys = my_dict.keys()
+	values = my_dict.values()
+	print("Keys:", keys)
+	print("Values:", values)
+	print()
+
+# 6. Check if key is present in the dictionary
+	print("6. Check if key is present in the dictionary:")
+	is_gender_present = 'gender' in my_dict
+	print("Is 'gender' present in the dictionary?", is_gender_present)
+	print()
+
+# 7. Check if value is present in the dictionary
+	print("7. Check if value is present in the dictionary:")
+	is_age_present = 26 in my_dict.values()
+	print("Is age 26 present in the dictionary?", is_age_present)
+	print()
+
+# 8. Copying a dictionary
+	print("8. Copying a dictionary:")
+	copied_dict = my_dict.copy()
+	print("Copied dictionary:", copied_dict)
+	print()
+
+# 9. Clearing the entire dictionary
+	print("9. Clearing the entire dictionary:")
+	my_dict.clear()
+	print("Dictionary after clearing:", my_dict)
+-------------------------------------------------
+output::	
+	1. Accessing values by key:
+	Name: John
+	Age: 25
+
+	2. Updating values by key:
+	Updated dictionary: {'name': 'John', 'age': 26, 'city': 'San Francisco', 'gender': 'Male'}
+
+	3. Adding a new key-value pair:
+	Dictionary after adding occupation: {'name': 'John', 'age': 26, 'city': 'San Francisco', 'gender': 'Male', 'occupation': 'Software Engineer'}
+
+	4. Removing a key-value pair:
+	Dictionary after removing age: {'name': 'John', 'city': 'San Francisco', 'gender': 'Male', 'occupation': 'Software Engineer'}
+	Removed age: 26
+
+	5. Getting keys and values:
+	Keys: dict_keys(['name', 'city', 'gender', 'occupation'])
+	Values: dict_values(['John', 'San Francisco', 'Male', 'Software Engineer'])
+
+	6. Check if key is present in the dictionary:
+	Is 'gender' present in the dictionary? True
+
+	7. Check if value is present in the dictionary:
+	Is age 26 present in the dictionary? False
+
+	8. Copying a dictionary:
+	Copied dictionary: {'name': 'John', 'city': 'San Francisco', 'gender': 'Male', 'occupation': 'Software Engineer'}
+
+	9. Clearing the entire dictionary:
+	Dictionary after clearing: {}
+
+Process finished with exit code 0
+================================================================================================================================
+
+4))type casting( converting one data type to another)
+
+# Example 1: Integer to float
+	integer_value = 42
+	float_value = float(integer_value)
+	print(f"Example 1: Integer to float - Original: {integer_value}, Casted: {float_value}")
+
+# Example 2: Float to integer
+	float_number = 3.14
+	integer_number = int(float_number)
+	print(f"Example 2: Float to integer - Original: {float_number}, Casted: {integer_number}")
+
+# Example 3: Integer to string
+	number = 123
+	string_number = str(number)
+	print(f"Example 3: Integer to string - Original: {number}, Casted: '{string_number}'")
+
+# Example 4: String to integer
+	string_digit = "456"
+	integer_digit = int(string_digit)
+	print(f"Example 4: String to integer - Original: '{string_digit}', Casted: {integer_digit}")
+
+# Example 5: String to float
+	string_float = "7.89"
+	float_number_from_string = float(string_float)
+	print(f"Example 5: String to float - Original: '{string_float}', Casted: {float_number_from_string}")
+--------------------------------------------
+output::
+	Example 1: Integer to float - Original: 42, Casted: 42.0
+	Example 2: Float to integer - Original: 3.14, Casted: 3
+	Example 3: Integer to string - Original: 123, Casted: '123'
+	Example 4: String to integer - Original: '456', Casted: 456
+	Example 5: String to float - Original: '7.89', Casted: 7.89
+
+Process finished with exit code 0
+
+===============================================================================================================
+5)))explore operator precedence
+
+
+>>Parentheses (): Parentheses have the highest precedence and can be used to force the order of evaluation within an expression.
+
+>>Exponentiation **: Exponentiation has the second-highest precedence.
+
+>>Positive +, Negative -, Bitwise NOT ~: These unary operators have the next level of precedence.
+
+>>Multiplication *, Division /, Floor Division //, Modulus %: These arithmetic operators have the same level of precedence and are evaluated from left to right.
+
+>>Addition +, Subtraction -: These arithmetic operators have the same level of precedence and are evaluated from left to right.
+
+>>Bitwise Shifts <<, >>: Bitwise shift operators have the same level of precedence and are evaluated from left to right.
+
+>>Bitwise AND &: Bitwise AND has a lower precedence than shifts.
+
+>>Bitwise XOR ^: Bitwise XOR has a lower precedence than bitwise AND.
+
+>>Bitwise OR |: Bitwise OR has a lower precedence than bitwise XOR.
+
+>>Comparison operators ==, !=, <, >, <=, >=, in, not in, is, is not: These comparison operators have the next level of precedence.
+
+>>Logical NOT not: Logical NOT has a lower precedence than comparison operators.
+
+>>Logical AND and: Logical AND has a lower precedence than logical NOT.
+
+>>Logical OR or: Logical OR has the lowest precedence among the logical operators.
+
+>>Conditional Expression if-else: The conditional expression (ternary operator) x if condition else y has the lowest precedence
+	
+	==============================
+
+
+# Example: Operator Precedence
+
+
+	result = 5 + 2 * 3 ** 2 / 4
+
+	print("Result:", result)
+
+
+output::
+Result: 9.5
+

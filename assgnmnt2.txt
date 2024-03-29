@@ -1,0 +1,73 @@
+12.03.2024
+
+1))write a python programme which prints even numberfrom range 1 to 100
+
+		for x in range(1,100):
+    			if x % 2 ==0:
+        		print(x,end=",")...........................displays even numbers
+
+2))write a python programme which prints alternate/random numbers from the range 1 to 500
+		
+		for x in range(1,500,15):
+
+       			 print(x).............>dispalys numbers with difference 15
+
+3)))write a python programme that takes a number between 1 to 12 as input and prints the corresponding month name
+
+
+	a =int(input("enter month number:"))
+	a -= 1
+	month =["jan", "feb", "mar", "apr", "may", "june", "july", "aug", "sep", "oct", "nov", "dec"]
+	print(month[a])
+
+
+
+output::
+	Enter month number: 8
+	 Aug
+
+Process finished with exit code 0
+==================================================================================================
+
+4))write a python programme that takes three numbers as an input and printout the largest number among them
+
+	num1 = int(input("Enter the first number: "))
+	num2 = int(input("Enter the second number: "))
+	num3 = int(input("Enter the third number: "))
+	largestnum = max(num1, num2, num3)
+	print("The highest number is:", largestnum)
+
+---------------------------
+output::
+
+	Enter the first number: 56
+	Enter the second number: 76
+	Enter the third number: 43
+		The highest number is: 76
+
+Process finished with exit code 0
+
+=====================================================================================================================
+5)))write a python programme that takes a password as input and checks its strength based on following critiria:weak(less than 6 characters),
+medium(6 to 10 characters),strong(more than 10 characters with a mix of upper case,lower case,digits and special characters)
+
+		password = input("Enter your password: ")
+		if(len(password)<6):
+   		print("Weak")
+		elif(6<= len(password)<=10):
+    			print("Medium")
+		elif(len(password) > 10 and any(char.isupper() for char in password) and any(char.islower() for char in password) and any(char.isdigit() for char in password) and any(char in "!@#$%^&*()-_+=<>,.?/:;{}[]|~" for char in password)):
+    		print("Strong")
+		else:
+    		print("Invalid")
+
+
+output::
+	Enter your password: annu
+		Weak
+	Enter your password: anusha8578
+		Medium
+	Enter your password: Anusha@2024
+		Strong
+
+================================================================================================================================

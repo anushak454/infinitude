@@ -1,0 +1,330 @@
+MODULES::
+
+1..>>create a python module named random_generator.py taht contains a function to generate a list of random numbers.
+generate a list of 10 random numbers within a specified range entered by the user..
+
+IN MODULE FILE
+::
+def random(start, end, diff):
+
+    sequence = []
+    for num in range(start, end, diff):
+        sequence.append(num)
+    return sequence
+
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+diff = int(input("Enter the desired difference: "))
+
+result = random(start, end, diff)
+print("Generated sequence:", result)
+
+IN MAIN FILE:
+
+import random_generator()
+random_generator.random()
+
+
+
+OUTPUT::
+
+Enter the starting number: 5
+Enter the ending number: 50
+Enter the desired difference: 5
+Generated sequence: [5, 10, 15, 20, 25, 30, 35, 40, 45]
+=================================================================================================================================
+2..>>>create a python module named calculator.py that contains functions for addition,substraction,multiplication and division.
+and import that module and perform arthimatic operations on two numbers entered by the user
+
+IN MODULE FILE:
+
+def addition(a, b):
+    return a + b
+
+def subtraction(a, b):
+    return a - b
+
+def multiplication(a, b):
+    return a * b
+
+def division(a, b):
+    return a / b
+
+IN MAIN FILE:
+
+import calculator
+
+
+def main():
+    a = float(input("Enter the first number: "))
+    b = float(input("Enter the second number: "))
+
+
+    print("Sum:", calculator.addition(a, b))
+    print("Difference:", calculator.subtraction(a, b))
+    print("Product:", calculator.multiplication(a, b))
+    print("Division is:", calculator.division(a,b))
+
+
+if __name__ == "__main__":
+    main()
+
+OUTPUT::
+
+Enter the first number: 25
+Enter the second number: 5
+Sum: 30.0
+Difference: 20.0
+Product: 125.0
+Division is: 5.0
+
+=================================================================================================================================
+FILE HANDLING
+::
+
+3...>>>Create a python programm to read the contents of text file named input.text and display them on the screen
+	def main():
+      
+  	      with open("input.txt", "r") as file:
+        	    contents = file.read()
+            	print(contents)
+
+if __name__ == "__main__":
+    main()
+----------------------------------------------------------------------
+
+with open("input.txt", "r") as file:
+    contents = file.read()
+    print(contents)
+
+
+=================================================================================================================================
+4..>>Create a python programm to take user input and write it to a new text file named output.text
+	file_name = "output.txt"
+        user_input = input("Enter text to write to the file: ")
+
+        with open(file_name, "w") as file:
+            file.write(user_input)
+
+        print(f"Data has been written to '{file_name}' successfully.")
+
+=================================================================================================================================
+5..>>Create a python programm to copy the contents of one text file named source.text to another text file named destination.text
+
+def main():
+    source_file = "source.txt"
+    destination_file = "destination.txt"
+
+    
+        with open(source_file, "r") as source:
+            contents = source.read()
+
+        with open(destination_file, "w") as destination:
+            destination.write(contents)
+
+        print(f"Contents of '{source_file}' copied to '{destination_file}' successfully.")
+   
+
+if __name__ == "__main__":
+    main()
+
+
+
+=================================================================================================================================
+6...>>>>Create a python programm to read data from a csv file named data.csv and display it in tabular format
+import csv
+
+def display_csv_data(file_name):
+    try:
+        with open(file_name, 'r') as file:
+            csv_reader = csv.reader(file)
+            data = list(csv_reader)
+            
+            # Calculate the maximum width of each column
+            column_widths = [max(len(item) for item in column) for column in zip(*data)]
+
+            # Display the data in tabular format
+            for row in data:
+                formatted_row = " | ".join(item.ljust(width) for item, width in zip(row, column_widths))
+                print(formatted_row)
+    except FileNotFoundError:
+        print(f"Error: File '{file_name}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    file_name = "data.csv"
+    display_csv_data(file_name)
+
+
+
+=================================================================================================================================
+7...>>>Create a python programm to take user input and write it to a new row in a csv file named data.csv
+
+import csv
+
+# Sample data to write to the CSV file
+data = [
+    ["Name", "Age", "City"],
+    ["John", 30, "New York"],
+    ["Alice", 25, "Los Angeles"],
+    ["Bob", 35, "Chicago"]
+]
+
+# Specify the file name
+file_name = "output.csv"
+
+# Open the file in write mode ('w') and newline='' to avoid extra newline characters
+
+with open(file_name, 'w', newline='') as file:
+    writer = csv.writer(file)
+
+ # Write the data to the CSV file row by row
+    for row in data:
+        writer.writerow(row)
+
+print("Data written successfully to", file_name)
+
+OUTPUT::
+
+
+Data written successfully to output.csv
+
+
+-----------------------------------------------------------------------------
+
+import csv
+
+data =[
+    ['name', 'place', 'branch'],
+    ['anusha', 'ongole', 'ece'],
+    ['kavya', 'kukatpally', 'cse'],
+    ['sravani', 'kothapeta', 'auronatical']
+    ]
+csv_file_path = 'indata.csv'
+with open(csv_file_path, 'w', newline='') as csv.file:
+    writer = csv.writer(csv.file)
+    writer.writerows(data)
+print("csv file created succesfully")
+
+
+-------------------------------------------------
+TO CHECK THE DATA IN THE FILE
+
+import csv
+
+# Specify the file name
+file_name = "output.csv"
+
+# Open the file in read mode ('r')
+with open(file_name, 'r', newline='') as file:
+    reader = csv.reader(file)
+
+    # Iterate over each row in the CSV file and print it
+    for row in reader:
+        print(row)
+
+OUTPUT::
+['Name', 'Age', 'City']
+['John', '30', 'New York']
+['Alice', '25', 'Los Angeles']
+['Bob', '35', 'Chicago']
+
+
+=================================================================================================================================
+8...>>>Create a python programm to read data from a json file named jason.csv and display them on the screen
+
+import json
+
+def read_and_display_json(json_file):
+    try:
+        with open(json_file, 'r') as file:
+            data = json.load(file)
+            print("Data from JSON file:")
+            print(data)
+    except FileNotFoundError:
+        print(f"Error: File '{json_file}' not found.")
+    except Exception as e:
+        print(f"An error occurred while reading JSON file: {e}")
+
+if __name__ == "__main__":
+    json_file = "json.json"
+    read_and_display_json(json_file)
+
+
+
+=================================================================================================================================
+9...>>>Create a python programm to read data from a json file yaml and display them on the screen
+
+pip install pyyaml
+
+
+
+import json
+import yaml
+
+def read_and_display_json(json_file):
+    try:
+        with open(json_file, 'r') as file:
+            data = json.load(file)
+            print("Data from JSON file:")
+            print(data)
+    except FileNotFoundError:
+        print(f"Error: File '{json_file}' not found.")
+    except Exception as e:
+        print(f"An error occurred while reading JSON file: {e}")
+
+def read_and_display_yaml(yaml_file):
+    try:
+        with open(yaml_file, 'r') as file:
+            data = yaml.safe_load(file)
+            print("\nData from YAML file:")
+            print(data)
+    except FileNotFoundError:
+        print(f"Error: File '{yaml_file}' not found.")
+    except Exception as e:
+        print(f"An error occurred while reading YAML file: {e}")
+
+if __name__ == "__main__":
+    json_file = "data.json"
+    yaml_file = "data.yaml"
+
+    read_and_display_json(json_file)
+    read_and_display_yaml(yaml_file)
+
+
+
+
+=================================================================================================================================
+
+
+
+in data.py file::
+
+import csv
+with open('data.csv', 'r') as csv_file:
+    csv_reader = csv.reader((csv_file))
+    print(csv_reader)
+
+
+output::
+<_csv.reader object at 0x000001EFA537F0A0>
+
+
+
+-------------------------------------------------------------
+import csv
+with open('data.csv', 'r') as csv_file:
+    csv_reader = csv.reader((csv_file))
+    print(csv_reader)
+    for line in csv_reader:
+        print(line)
+
+
+output::
+<_csv.reader object at 0x000002851E05F0A0>
+['import csv']
+[]
+["    with open('names.csv'", " 'r') as csv_file:"]
+['        csv_reader = csv.reader(csv.file)']
+['            print(csv_reader)']

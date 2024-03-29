@@ -1,0 +1,121 @@
+1))))write a program to read a csv file named test.csv using magic methods __next__ and __iter__ and implement exception handling as well
+
+import csv
+
+class CSVReader:
+    def __init__(self, file_name):
+        self.file_name = file_name
+        self.file = None
+        self.reader = None
+
+    def __iter__(self):
+        try:
+            self.file = open(self.file_name, 'r')
+            self.reader = csv.reader(self.file)
+            return self
+        except FileNotFoundError:
+            print("File not found.")
+            raise StopIteration
+
+    def __next__(self):
+        try:
+            if self.reader is None:
+                raise StopIteration
+            row = next(self.reader)
+            return row
+        except StopIteration:
+            self.file.close()
+            raise StopIteration
+        except Exception as e:
+            print(f"Error: {e}")
+            self.file.close()
+            raise StopIteration
+
+# Usage example:
+try:
+    csv_reader = CSVReader("test.csv")
+    for row in csv_reader:
+        print(row)
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+
+
+2))))))write a program which hits the following upi: https://reqres.in/api/users. use post method to send request with the following as json body and print the response and json input body::
+{
+"name":"morpheus",
+"job":"leader"
+}
+
+import requests
+import json
+
+# Define the URL
+url = "https://reqres.in/api/users"
+
+# Define the JSON body
+json_body = {
+    "name": "morpheus",
+    "job": "leader"
+}
+
+try:
+    # Send POST request with JSON body
+    response = requests.post(url, json=json_body)
+
+    # Print the response status code and content
+    print("Response Status Code:", response.status_code)
+    print("Response Body:")
+    print(json.dumps(response.json(), indent=4))
+
+    # Print the JSON input body
+    print("\nJSON Input Body:")
+    print(json.dumps(json_body, indent=4))
+
+except Exception as e:
+    print("An error occurred:", e)
+
+
+
+3))))write functions which should be cap[able of handling multiple arguments and should perform addition,substraction and multiplication.take three files file1,file2 and main.py.write functions with name add and sub in file1 and multi in file2 and call these functions in main.py
+
+
+in file1::
+def add(*args):
+    result = sum(args)
+    return result
+
+def sub(*args):
+    result = args[0] - sum(args[1:])
+    return result
+
+in file2::
+
+def multi(*args):
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+
+in main.py
+
+from file1 import add, sub
+from file2 import multi
+
+# Test the functions
+if __name__ == "__main__":
+    numbers = [10, 5, 2]
+
+    # Test addition
+    addition_result = add(*numbers)
+    print("Addition Result:", addition_result)
+
+    # Test subtraction
+    subtraction_result = sub(*numbers)
+    print("Subtraction Result:", subtraction_result)
+
+    # Test multiplication
+    multiplication_result = multi(*numbers)
+    print("Multiplication Result:", multiplication_result)

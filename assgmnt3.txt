@@ -1,0 +1,123 @@
+13.03.2024
+
+1)write own examples for  each and every function
+
+	def add(a,b):
+    	return a+b
+c = add(4,6)
+print("the sum of given numbers", + c)
+
+----------------------------------------------------------------------
+
+def give_password():
+    password =input("enter password")
+    if len(password)<6:
+         print("weak")
+    elif 6<= len(password) <=10:
+        print("medium")
+    elif len(password) >=10 and any(char.isupper() for char in password) and any(char.islower() for char in password) 
+	and any(char.isdigit() for char in password) and any(char in "!@#$%^&*()-_+=<>,.?/:;{}[]|~" for char in password):
+        print("strong")
+    else:
+        print("password is invalid")
+give_password()
+
+--------------------------------------------------------------------------------------------
+
+recursive function::
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+num = 6
+print("Factorial of num:", factorial(num))
+
+output::
+Factorial of num: 720
+
+
+----------------------------------------------------------------------------------------------
+2)write example for *args and **kwargs
+
+
+
+def add(*args):
+    sum = 0
+    for num in args:
+        sum += num
+    return sum
+
+print("sum:", add(34, 43, 56, 2))
+print("sum:", add(65, 4, 12, 1, 5, 3, 6))
+
+
+
+output::
+sum: 135
+sum: 96
+
+
+=========================================================
+
+
+
+def exmkw(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Example usage
+	exmkw(name="John", age=25, city="New York")
+	exmkw(title="Python Developer", experience="3 years", language="Python")
+
+
+
+output::
+name: John
+age: 25
+city: New York
+
+title: Python Developer
+experience: 3 years
+language: Python
+
+==========================================================================================
+
+
+
+Built-in Functions:
+
+	print("Hello, World!")  
+	result = len([1, 2, 3, 4, 5])  
+
+
+User-Defined Functions:
+ 
+	def add_numbers(a, b):
+    	return a + b
+	result = add_numbers(3, 5)
+	print(result) 
+ # Output: 8
+
+
+Lambda Functions:
+
+multiply = lambda x, y: x * y
+result = multiply(4, 6)
+print(result)  # Output: 24
+
+division= lambda x, y: x % y
+result = division(2, 8)
+print(result) ::::output::2
+
+
+Methods:
+
+my_list = [1, 2, 3]
+my_list.append(4)  # append() is a method of the list class
+print(my_list)  # Output: [1, 2, 3, 4]
+
+
+

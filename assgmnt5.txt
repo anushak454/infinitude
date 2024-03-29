@@ -1,0 +1,161 @@
+1))Implement a heirarchy of shapes using classes. Create a superclass called shapes and subclasses for different
+shapes such as circle,rectangular and triangle. Include metods to calculate area and perimeter for each.
+
+import math
+
+class Shape():
+    def area(self):
+        pass
+    def perimeter(self):
+        pass
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius = radius
+    def area(self):
+        return math.pi * self.radius**2
+    def perimeter(self):
+        return 2*math.pi*self.radius
+
+class Rectangle(Shape):
+
+    def __init__(self,width,height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * self.width * self.height
+
+class Triangle(Shape):
+    def __init__(self,side1,side2,side3):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def area(self):
+        s = (self.side1 + self.side2 + self.side3)/2
+        return math.sqrt(s * (s - self.side1) * (s - self.side2) *(s - self.side3))
+
+    def perimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+circle = Circle(8)
+print("Circle Area:", circle.area())
+print("Circle Perimeter:", circle.perimeter())
+
+rectangle = Rectangle(7, 9)
+print("Rectangle Area:", rectangle.area())
+print("Rectangle Perimeter:", rectangle.perimeter())
+
+triangle = Triangle(15, 13, 12)
+print("Triangle Area:", triangle.area())
+print("Triangle Perimeter:", triangle.perimeter()
+
+
+OUTPUT::
+
+Circle Area: 201.06192982974676
+Circle Perimeter: 50.26548245743669
+Rectangle Area: 63
+Rectangle Perimeter: 126
+Triangle Area: 74.83314773547883
+Triangle Perimeter: 40
+========================================================================================================================
+
+
+
+2))) Design a python  program to manage stiudent recordsl. Implement a class for student, course and grade. 
+Include methods for enrolling the sudents in courses, recording the grades and generating transcripts.
+
+
+class Student():
+    def __init__(self, student_id, name):
+        self.student_id = student_id
+        self.name = name
+        self.courses = {}
+    
+    def enroll(self, course):
+        self.courses[course.course_id] = course
+    
+    def __str__(self):
+        return f"Student ID: {self.student_id}, Name: {self.name}"
+
+
+class Course:
+    def __init__(self, course_id, name):
+        self.course_id = course_id
+        self.name = name
+        self.students = {}
+    
+    def enroll_student(self, student):
+        self.students[student.student_id] = student
+    
+    def __str__(self):
+        return f"Course ID: {self.course_id}, Name: {self.name}"
+
+
+class Grade:
+    def __init__(self, student_id, course_id, grade):
+        self.student_id = student_id
+        self.course_id = course_id
+        self.grade = grade
+    
+    def __str__(self):
+        return f"Student ID: {self.student_id}, Course ID: {self.course_id}, Grade: {self.grade}"
+
+
+class Transcript:
+    @staticmethod
+    def generate(student):
+        transcript = f"Transcript for {student.name} (Student ID: {student.student_id}):\n"
+        for course_id, course in student.courses.items():
+            transcript += f"\n{course}\n"
+            transcript += "Grades:\n"
+            for grade in course.students[student.student_id].grades:
+                transcript += f"{grade}\n"
+        return transcript
+
+
+# Example Usage:
+student1 = Student("S001", "Alice")
+student2 = Student("S002", "Bob")
+
+course1 = Course("C001", "Mathematics")
+course2 = Course("C002", "Physics")
+
+course1.enroll_student(student1)
+course2.enroll_student(student1)
+course2.enroll_student(student2)
+
+student1.enroll(course1)
+student1.enroll(course2)
+student2.enroll(course2)
+
+# Record grades
+student1.courses["C001"].students["S001"].grades = [Grade("S001", "C001", "A"),
+                                                    Grade("S001", "C002", "B")]
+
+student2.courses["C002"].students["S002"].grades = [Grade("S002", "C002", "B")]
+
+# Generate transcripts
+print(Transcript.generate(student1))
+print(Transcript.generate(student2))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

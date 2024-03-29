@@ -1,0 +1,29 @@
+date ::-7.03.2024
+
+
+>>why python::
+interpreted>>>executes line by line
+high level lang>>>human understandable
+
+
+>>there is
+	wide range of appplications
+	large standard library
+
+>>advantages of python::
+
+	..rich ecosystem of third party libraries and frameworks
+		getting new versions(3.11/3.12)
+	..cross platform compatibilty
+	..community support and documantation
+	..suitable for rapid development
+
+
+>>python installation::
+
+	..pycharm which is IDE similar to Eclipse((IDE is integrated development environment))
+
+	
+
+
+1)))))setup pycharm and try variables and integers

@@ -1,0 +1,341 @@
+1)) Write a python program which makes ssh connection to Linux VM and runs any one command
+
+import paramiko
+
+def ssh_command(hostname, port, username, password, command):
+    try:
+        # Create SSH client instance
+        ssh_client = paramiko.SSHClient()
+
+        # Automatically add host keys
+        ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+        # Connect to the SSH server
+        ssh_client.connect(hostname=hostname, port=port, username=username, password=password)
+
+        # Execute the command
+        stdin, stdout, stderr = ssh_client.exec_command(command)
+
+        # Read the output
+        output = stdout.read().decode()
+        error = stderr.read().decode()
+
+        # Print output or error
+        if output:
+            print("Command output:")
+            print(output)
+        if error:
+            print("Command error:")
+            print(error)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    finally:
+        # Close the SSH connection
+        ssh_client.close()
+
+if __name__ == "__main__":
+
+    # SSH connection details
+    hostname = "your_host_name_or_ip"
+    port = 22  # default SSH port
+    username = "your_username"
+    password = "your_password"
+    
+    # Command to execute
+    command = "ls -l"  # Example command, replace with your own
+
+    # Execute the SSH command
+    ssh_command(hostname, port, username, password, command)
+------------------------------------------------------------
+
+import paramiko
+def run_ssh_command(hostname, username, password, command):
+    # Create an SSH client instance
+    client = paramiko.SSHClient()
+    # Automatically add the server's host key
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    try:
+        # Connect to the server
+        client.connect(hostname, username=username, password=password)
+        # Run the command
+        stdin, stdout, stderr = client.exec_command(command)
+        # Read the output
+        output = stdout.read().decode("utf-8")
+        # Print the output
+        print(output)
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        # Close the SSH connection
+        client.close()
+
+# Example usage
+if _name_ == "_main_":
+    hostname ="192.168.1.60"
+    username = "kavyakavya"
+    password = "Kavya@2001"
+    command = ("ls")# Example command
+    run_ssh_command(hostname, username, password, command)
+
+
+==================================================================================================================================
+2))Write a program which explains the special methods in python like __add__ __sub__ __mul__ and rest of the mathematical methods
+
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+    
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+    
+    def __truediv__(self, scalar):
+        return Vector(self.x / scalar, self.y / scalar)
+    
+    def __floordiv__(self, scalar):
+        return Vector(self.x // scalar, self.y // scalar)
+    
+    def __mod__(self, scalar):
+        return Vector(self.x % scalar, self.y % scalar)
+    
+    def __pow__(self, exponent):
+        return Vector(self.x ** exponent, self.y ** exponent)
+    
+    def __abs__(self):
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+
+# Creating Vector objects
+v1 = Vector(3, 4)
+v2 = Vector(1, 2)
+
+# Addition
+print("Addition:", v1 + v2)
+
+# Subtraction
+print("Subtraction:", v1 - v2)
+
+# Multiplication
+print("Multiplication:", v1 * 2)
+
+# True division
+print("True Division:", v1 / 2)
+
+# Floor division
+print("Floor Division:", v1 // 2)
+
+# Modulus
+print("Modulus:", v1 % 2)
+
+# Exponentiation
+print("Exponentiation:", v1 ** 2)
+
+# Absolute value
+print("Absolute Value of v1:", abs(v1))
+
+
+==================================================================================================================================
+3))Write a python program for fibonacci series using GENERATORS
+
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Create a generator object
+fib_gen = fibonacci()
+
+# Generate the Fibonacci sequence up to a certain limit
+limit = 10
+for _ in range(limit):
+    print(next(fib_gen))
+
+
+==================================================================================================================================
+4))Write a file reader class that reads lines from a file and support iteration using the __iter__ and __next__ methods
+
+
+class FileReader:
+    def __init__(self, filename):
+        self.filename = filename
+        self.file = open(filename, 'r')
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        line = self.file.readline()
+        if not line:
+            self.file.close()
+            raise StopIteration
+        return line.rstrip('\n')
+
+# Example usage:
+file_reader = FileReader('example.txt')
+for line in file_reader:
+    print(line)
+
+==================================================================================================================================
+5))implement a custom list class that supports addition of two lists using the __add__ method
+
+
+class CustomList:
+    def __init__(self, elements=None):
+        if elements is None:
+            self.elements = []
+        else:
+            self.elements = elements
+
+    def __add__(self, other):
+        if len(self.elements) != len(other.elements):
+            raise ValueError("Lists must have the same length for addition.")
+        result = [x + y for x, y in zip(self.elements, other.elements)]
+        return CustomList(result)
+
+    def __repr__(self):
+        return repr(self.elements)
+
+# Example usage:
+list1 = CustomList([1, 2, 3])
+list2 = CustomList([4, 5, 6])
+
+result = list1 + list2
+print(result)  # Output will be: [5, 7, 9]
+
+
+
+
+==================================================================================================================================
+
+
+implement the nested functionality of the functions(any example)
+passing function as an argument to another function(any example)
+implementing decorator for logging or authentication
+
+
+=====================================================================================================================================
+numpy arrays::
+
+
+1)) slicing of both 2d and 3d arrays
+
+import numpy as np
+
+# Create a 2D array (matrix)
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+# Slicing rows and columns
+row_slice = matrix[1]          
+column_slice = matrix[:, 1]    
+element_slice = matrix[1, 1]   
+
+print("Row slice:", row_slice)         
+print("Column slice:", column_slice)   
+print("Element slice:", element_slice)
+
+OUTPUT::
+Row slice: [4 5 6]
+Column slice: [2 5 8]
+Element slice: 5
+
+
+# Create a 3D array
+array_3d = np.array([[[1, 2],
+                      [3, 4]],
+                     
+                     [[5, 6],
+                      [7, 8]]])
+
+# Slicing along each dimension
+depth_slice = array_3d[1]               
+row_slice = array_3d[1, 0]              
+element_slice = array_3d[1, 0, 1]       
+
+print("Depth slice:")
+print(depth_slice)      
+print("\nRow slice:")
+print(row_slice)         
+print("\nElement slice:", element_slice)   
+
+
+OUTPUT::
+
+
+Depth slice:
+[[5 6]
+ [7 8]]
+
+Row slice:
+[5 6]
+
+Element slice: 6
+
+
+=========================================================================================================
+
+2)) creating random arrays with different shapes
+
+
+
+import numpy as np
+
+# 1D array with 5 random integers between 0 and 9
+random_array_1d = np.random.randint(10, size=5)
+print("1D array:", random_array_1d)
+
+# 2D array with shape (3, 4) containing random floats between 0 and 1
+random_array_2d = np.random.rand(3, 4)
+print("\n2D array:")
+print(random_array_2d)
+
+# 3D array with shape (2, 3, 2) containing random numbers from a standard normal distribution
+random_array_3d = np.random.randn(2, 3, 2)
+print("\n3D array:")
+print(random_array_3d)
+
+# 2D array with shape (3, 3) containing random integers from a uniform distribution between 0 and 100
+random_array_uniform = np.random.uniform(0, 100, size=(3, 3))
+print("\nUniform random array:")
+print(random_array_uniform)
+
+
+
+OUTPUT::
+
+1D array: [4 1 5 7 6]
+
+2D array:
+[[0.09047918 0.86163753 0.40939487 0.35951072]
+ [0.6938     0.73337251 0.92226451 0.5803744 ]
+ [0.63590558 0.42457578 0.60980575 0.11630485]]
+
+3D array:
+[[[ 0.95464558  0.55922768]
+  [ 0.67236825 -0.87766642]
+  [-0.19196179  0.28106292]]
+
+ [[-0.22905314 -0.54562829]
+  [-0.10881291  0.10652754]
+  [-0.32787572 -1.48058618]]]
+
+Uniform random array:
+[[90.2953486  91.08704989 36.9457325 ]
+ [60.66521882 31.93637175 32.39062295]
+ [16.9388303  10.18174117 16.3870397 ]]
+
+
